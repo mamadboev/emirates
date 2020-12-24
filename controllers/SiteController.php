@@ -62,12 +62,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $category = Category::find()
-            ->where(['status'=>1])
-            ->all();
-
         return $this->render('index',[
-            'category'=>$category
+
         ]);
     }
 
@@ -130,12 +126,8 @@ class SiteController extends Controller
      */
     public function actionProduct()
     {
-        $model = Category::find()
-            ->where(['status'=>1])
-            ->all();
 
         return $this->render('product', [
-            'model'=>$model
             ]);
     }
 

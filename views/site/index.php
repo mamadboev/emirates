@@ -105,8 +105,9 @@ $this->title = 'My Yii Application';
         </div>
     </div>
 </div>
+    <!--Bu widget bilan PRODUCTS ko'rsatilyapti-->
 <?=\app\widgets\category\Categories::widget();?>
-
+    <!--PRODUCTS widget tugadi-->
 <div id="fh5co-testimonial" class="fh5co-bg-section">
     <div class="container">
         <div class="row animate-box">

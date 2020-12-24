@@ -1,5 +1,6 @@
 <?php
 
+
 /* @var $this \yii\web\View */
 /* @var $content string */
 
@@ -9,6 +10,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\widgets\ActiveForm;
 
 AppAsset::register($this);
 ?>
@@ -122,13 +124,13 @@ AppAsset::register($this);
         <!-- </div> -->
 
 </div>
-
+<?php $form = ActiveForm::begin(); ?>
     <div id="fh5co-started">
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>Newsletter</h2>
-                    <p>Just stay tune for our latest Product. Now you can subscribe</p>
+                    <h2><?php echo Yii::t('app','Newsletter')?></h2>
+                    <p><?php echo Yii::t('app','Just stay tune for our latest Product. Now you can subscribe')?></p>
                 </div>
             </div>
             <div class="row animate-box">
@@ -136,12 +138,12 @@ AppAsset::register($this);
                     <form class="form-inline">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-group">
-                                <label for="email" class="sr-only">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Email">
+                                <label for="email" class="sr-only"><?php echo Yii::t('app','Email')?></label>
+                                <input type="email" class="form-control" id="email" placeholder="<?php echo Yii::t('app','Email')?>">
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <button type="submit" class="btn btn-default btn-block">Subscribe</button>
+                            <button type="submit" class="btn btn-default btn-block"><?php echo Yii::t('app','Subscribe')?></button>
                         </div>
                     </form>
                 </div>
@@ -195,10 +197,10 @@ AppAsset::register($this);
                     </p>
                     <p>
                     <ul class="fh5co-social-icons">
-                        <li><a href="#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li><a href=""><i class="icon-twitter"></i></a></li>
+                        <li><a href="https://www.facebook.com/sardor.mamadboyev.1"><i class="icon-facebook"></i></a></li>
                         <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                        <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                        <li><a href="https://t.me/Mamadboev"><i class="icon-paper-plane"></i></a></li>
                     </ul>
                     </p>
                 </div>
