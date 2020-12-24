@@ -1,20 +1,20 @@
 <?php
-
+use Yii;
 
 $this->title = 'Product';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site=product">
-    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/img_bg_2.jpg);">
+    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/shop.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                            <h1>Product</h1>
-                            <h2>Free html5 templates Made by <a href="http://freehtml5.co" target="_blank">freehtml5.co</a></h2>
+                            <h1><?php echo Yii::t('app','Product');?></h1>
+                            <h2><?php echo Yii::t('app','This created by: Sardor Mamadboyev')?></h2>
                         </div>
                     </div>
                 </div>
@@ -26,9 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <span>Cool Stuff</span>
-                    <h2>Products.</h2>
-                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                    <span><?php echo Yii::t('app','Online Shopping')?></span>
+                    <h2><?php echo Yii::t('app','Products')?></h2>
+                    <p><?php echo  Yii::t('app',"You can find the products you are looking for below")?></p>
                 </div>
             </div>
             <div class="row">
