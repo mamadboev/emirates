@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "category".
@@ -16,6 +17,9 @@ use Yii;
  */
 class Category extends \yii\db\ActiveRecord
 {
+    const SCENARIO_CATEGORY_CREATE='create category';
+    const SCENARIO_CATEGORY_UPDATE='update category';
+
     /**
      * {@inheritdoc}
      */
@@ -30,11 +34,14 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['c_min_price'], 'number'],
+            [['c_min_price','status'], 'number'],
             [['c_name_uz', 'c_name_en', 'c_name_ru'], 'string', 'max' => 80],
-            [['c_image'], 'string', 'max' => 255],
+            [['c_image'], 'file','skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg'],
+            ['c_image','required','on'=>self::SCENARIO_CATEGORY_CREATE]
         ];
     }
+
+
 
     /**
      * {@inheritdoc}

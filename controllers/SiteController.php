@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Category;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -61,7 +62,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $category = Category::find()
+            ->where(['status'=>1])
+            ->all();
+
+        return $this->render('index',[
+            'category'=>$category
+        ]);
     }
 
     /**
@@ -123,7 +130,13 @@ class SiteController extends Controller
      */
     public function actionProduct()
     {
-        return $this->render('product');
+        $model = Category::find()
+            ->where(['status'=>1])
+            ->all();
+
+        return $this->render('product', [
+            'model'=>$model
+            ]);
     }
 
     public function actionServices()

@@ -8,6 +8,8 @@ use app\models\CatregorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+
 
 /**
  * CategoryController implements the CRUD actions for Category model.
@@ -65,10 +67,9 @@ class CategoryController extends Controller
     public function actionCreate()
     {
         $model = new Category();
+        $model->scenario = Category::SCENARIO_CATEGORY_CREATE;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+       $this->CategorySaveWithImage($model);
 
         return $this->render('create', [
             'model' => $model,
@@ -89,6 +90,7 @@ class CategoryController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
+        $this->CategorySaveWithImage($model);
 
         return $this->render('update', [
             'model' => $model,
@@ -123,5 +125,25 @@ class CategoryController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    protected function CategorySaveWithImage(Category $model)
+    {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->c_image = UploadedFile::getInstance($model, 'c_image');
+
+            if ($model->validate()) {
+                if ($model->c_image) {$filePath = '/var/www/html/shop_test/web/images/' . $model->c_image->baseName . '.' .
+                    $model->c_image->extension;
+                $fileName=$model->c_image->baseName.'.'.$model->c_image->extension;
+                    if ($model->c_image->saveAs($filePath)) {
+                        $model->c_image = $fileName;
+                    }
+                }
+                if ($model->save(false)) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
+        }
     }
 }

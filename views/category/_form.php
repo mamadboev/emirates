@@ -18,9 +18,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'c_name_ru')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'c_image')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'c_image')->fileInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'c_min_price')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'status')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
