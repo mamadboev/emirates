@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
-                        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+                        <button type="submit" class="btn btn-default btn-block">Subscribe</button>
                     </div>
                 </form>
             </div>
