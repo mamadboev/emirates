@@ -14,15 +14,14 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-contact">
 
 
-    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/img_bg_2.jpg);">
+    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/shopping.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                            <h1>Contact Us</h1>
-                            <h2>Free html5 templates Made by <a href="http://freehtml5.co" target="_blank">freehtml5.co</a></h2>
+                            <h1><?php echo  Yii::t('app','Contact Us');?></h1>
                         </div>
                     </div>
                 </div>
@@ -36,12 +35,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-md-5 col-md-push-1 animate-box">
 
                     <div class="fh5co-contact-info">
-                        <h3>Contact Information</h3>
+                        <h3><?php echo  Yii::t('app','Contact Information');?></h3>
                         <ul>
-                            <li class="address">198 West 21th Street, <br> Suite 721 New York NY 10016</li>
-                            <li class="phone"><a href="tel://1234567920">+ 1235 2355 98</a></li>
-                            <li class="email"><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-                            <li class="url"><a href="http://gettemplates.co">gettemplates.co</a></li>
+                            <li class="address"> <?php echo  Yii::t('app','56,Mirzaobod v. Chust city');?><br> <?php echo  Yii::t('app','Namangan region, Uzbekistan');?></li>
+                            <li class="phone"><a href="tel://998993620127">+99 899 362 01 27</a></li>
+                            <li class="email"><a href="mail.ru">mamadboev@mail.ru</a></li>
+                            <li class="icon-paper-plane"><a href="https://t.me/Mamadboev">Sardor Mamadboev</a></li>
+
                         </ul>
                     </div>
 
