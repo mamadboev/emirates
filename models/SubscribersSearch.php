@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Category;
+use app\models\Subscribers;
 
 /**
- * CatregorySearch represents the model behind the search form of `app\models\Category`.
+ * SubscribersSearch represents the model behind the search form of `app\models\Subscribers`.
  */
-class CatregorySearch extends Category
+class SubscribersSearch extends Subscribers
 {
     /**
      * {@inheritdoc}
@@ -17,9 +17,8 @@ class CatregorySearch extends Category
     public function rules()
     {
         return [
-            [['id', 'status', 'created_by'], 'integer'],
-            [['c_name_uz', 'c_name_en', 'c_name_ru', 'c_image', 'created_at', 'updated_at'], 'safe'],
-            [['c_min_price'], 'number'],
+            [['id'], 'integer'],
+            [['email', 'created_at'], 'safe'],
         ];
     }
 
@@ -41,7 +40,7 @@ class CatregorySearch extends Category
      */
     public function search($params)
     {
-        $query = Category::find();
+        $query = Subscribers::find();
 
         // add conditions that should always apply here
 
@@ -60,17 +59,10 @@ class CatregorySearch extends Category
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'c_min_price' => $this->c_min_price,
-            'status' => $this->status,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'created_by' => $this->created_by,
         ]);
 
-        $query->andFilterWhere(['like', 'c_name_uz', $this->c_name_uz])
-            ->andFilterWhere(['like', 'c_name_en', $this->c_name_en])
-            ->andFilterWhere(['like', 'c_name_ru', $this->c_name_ru])
-            ->andFilterWhere(['like', 'c_image', $this->c_image]);
+        $query->andFilterWhere(['like', 'email', $this->email]);
 
         return $dataProvider;
     }

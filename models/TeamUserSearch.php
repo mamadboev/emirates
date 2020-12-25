@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Tuser;
+use app\models\TeamUser;
 
 /**
  * TeamUserSearch represents the model behind the search form of `app\models\TeamUser`.
  */
-class TuserSearch extends Tuser
+class TeamUserSearch extends TeamUser
 {
     /**
      * {@inheritdoc}
@@ -40,7 +40,7 @@ class TuserSearch extends Tuser
      */
     public function search($params)
     {
-        $query = Tuser::find();
+        $query = TeamUser::find();
 
         // add conditions that should always apply here
 

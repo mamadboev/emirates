@@ -2,10 +2,9 @@
 
 namespace app\controllers;
 
-use Cassandra\Date;
 use Yii;
-use app\models\Tuser;
-use app\models\TuserSearch;
+use app\models\TeamUser;
+use app\models\TeamUserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -37,7 +36,7 @@ class TuserController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new TuserSearch();
+        $searchModel = new TeamUserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -66,7 +65,7 @@ class TuserController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Tuser();
+        $model = new TeamUser();
 
         $this->Tuserload($model);
 
@@ -113,18 +112,18 @@ class TuserController extends Controller
      * Finds the TeamUser model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Tuser the loaded model
+     * @return TeamUser the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Tuser::findOne($id)) !== null) {
+        if (($model = TeamUser::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-    protected function Tuserload(Tuser $model)
+    protected function Tuserload(TeamUser $model)
     {
         if ($model->load(Yii::$app->request->post())) {
             $model->image = UploadedFile::getInstance($model, 'image');

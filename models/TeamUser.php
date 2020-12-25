@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "team_user".
@@ -20,7 +22,7 @@ use Yii;
  * @property string|null $telegram
  * @property string|null $github
  */
-class Tuser extends \yii\db\ActiveRecord
+class TeamUser extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -28,6 +30,20 @@ class Tuser extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'team_user';
+    }
+
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class'      => TimestampBehavior::class,
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                'value'      => date('Y-m-d H:i:s'),
+            ],
+        ];
     }
 
     /**
