@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Category;
+use app\models\Guest;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -108,8 +109,11 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+        $model = new Guest();
 
-        return $this->render('contact');
+        return $this->render('contact',[
+            'model'=>$model
+        ]);
     }
 
     /**
@@ -127,14 +131,14 @@ class SiteController extends Controller
     public function actionProduct()
     {
 
-        return $this->render('product', [
-            ]);
+        return $this->render('product', []);
     }
 
     public function actionServices()
     {
         return $this->render('services');
     }
+
     public function actionSingle()
     {
         return $this->render('single');
