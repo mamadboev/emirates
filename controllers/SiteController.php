@@ -130,7 +130,6 @@ class SiteController extends Controller
      */
     public function actionCategory()
     {
-
         return $this->render('category', []);
     }
 
