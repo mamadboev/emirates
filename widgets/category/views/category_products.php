@@ -3,7 +3,7 @@
         <div class="row animate-box">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                 <span><?php echo Yii::t('app','Online Shopping')?></span>
-                <h2><?php echo Yii::t('app','Products')?></h2>
+                <h2><?php echo Yii::t('app','Category')?></h2>
                 <p><?php echo  Yii::t('app',"You can find the products you need ")?></p>
             </div>
         </div>

@@ -75,27 +75,27 @@ AppAsset::register($this);
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-xs-2">
-                    <div id="fh5co-logo"><a href="<?=$site.'index';?>">Shop.</a></div>
+                    <div id="fh5co-logo"><a href="<?=$site.'index';?>"><?php echo  Yii::t('app','Shop.');?></a></div>
                 </div>
                 <div class="col-md-6 col-xs-6 text-center menu-1">
                     <ul>
                         <li class="has-dropdown">
-                            <a href="<?=$site.'product';?>">Shop</a>
+                            <a href="<?=$site.'category';?>"><?php echo  Yii::t('app','Category');?></a>
                             <ul class="dropdown">
-                                <li><a href="<?=$site.'single'?>">Single Shop</a></li>
+                                <li><a href="<?=$site.'single'?>"><?php echo  Yii::t('app','Single Shop');?></a></li>
                             </ul>
                         </li>
-                        <li><a href="<?=$site.'about';?>">About</a></li>
+                        <li><a href="<?=$site.'about';?>"><?php echo  Yii::t('app','About');?></a></li>
                         <li class="has-dropdown">
-                            <a href="<?=$site.'services';?>">Services</a>
+                            <a href="<?=$site.'services';?>"><?php echo  Yii::t('app','Services');?></a>
                             <ul class="dropdown">
-                                <li><a href="#">Web Design</a></li>
-                                <li><a href="#">eCommerce</a></li>
-                                <li><a href="#">Branding</a></li>
-                                <li><a href="#">API</a></li>
+                                <li><a href="#"><?php echo  Yii::t('app','Web Design');?></a></li>
+                                <li><a href="#"><?php echo  Yii::t('app','eCommerce.');?></a></li>
+                                <li><a href="#"><?php echo  Yii::t('app','Branding.');?></a></li>
+                                <li><a href="#"><?php echo  Yii::t('app','API.');?></a></li>
                             </ul>
                         </li>
-                        <li><a href="<?=$site.'contact';?>">Contact</a></li>
+                        <li><a href="<?=$site.'contact';?>"><?php echo  Yii::t('app','Contact');?></a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
@@ -130,36 +130,36 @@ AppAsset::register($this);
         <div class="container">
             <div class="row row-pb-md">
                 <div class="col-md-4 fh5co-widget">
-                    <h3>Shop.</h3>
-                    <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+                    <h3><?php echo Yii::t('app','Shop.');?></h3>
+                    <p><?php echo Yii::t('app','An online store is a test-based web application that performs convenience');?></p>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
                     <ul class="fh5co-footer-links">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">Meetups</a></li>
+                        <li><a href="<?=$site.'about'?>"><?php echo  Yii::t('app','About');?></a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Help');?></a></li>
+                        <li><a href="<?=$site.'contact'?>"><?php echo  Yii::t('app','Contact');?></a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Terms');?></a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Meetups');?></a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
                     <ul class="fh5co-footer-links">
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">Handbook</a></li>
-                        <li><a href="#">Held Desk</a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Shop');?></a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Privacy');?></a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Testimonials');?></a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Handbook');?></a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Held Desk');?>Held Desk</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
                     <ul class="fh5co-footer-links">
-                        <li><a href="#">Find Designers</a></li>
-                        <li><a href="#">Find Developers</a></li>
-                        <li><a href="#">Teams</a></li>
-                        <li><a href="#">Advertise</a></li>
-                        <li><a href="#">API</a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Find Designers');?></a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Find Developers');?></a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Teams');?></a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','Advertise');?></a></li>
+                        <li><a href="#"><?php echo  Yii::t('app','API');?></a></li>
                     </ul>
                 </div>
             </div>
@@ -167,8 +167,8 @@ AppAsset::register($this);
             <div class="row copyright">
                 <div class="col-md-12 text-center">
                     <p>
-                        <small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
-                        <small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://blog.gessato.com/" target="_blank">Gessato</a> &amp; <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+                        <small class="block">&copy; <?php echo Yii::t('app','2020 year created')?> </small>
+                        <small class="block"><?php echo Yii::t('app','Designed and Created by  Mamadboev Sardor');?></a></small>
                     </p>
                     <p>
                     <ul class="fh5co-social-icons">

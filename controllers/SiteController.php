@@ -128,10 +128,10 @@ class SiteController extends Controller
     /**
      * @retrun bool
      */
-    public function actionProduct()
+    public function actionCategory()
     {
 
-        return $this->render('product', []);
+        return $this->render('category', []);
     }
 
     public function actionServices()

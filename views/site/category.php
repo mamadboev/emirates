@@ -1,7 +1,7 @@
 <?php
 use Yii;
 
-$this->title = 'Product';
+$this->title = 'Category';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                            <h1><?php echo Yii::t('app','Product');?></h1>
+                            <h1><?php echo Yii::t('app','Category');?></h1>
                             <h2><?php echo Yii::t('app','This created by: Sardor Mamadboyev')?></h2>
                         </div>
                     </div>
