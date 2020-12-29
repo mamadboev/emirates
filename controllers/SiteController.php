@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Category;
 use app\models\Guest;
+use app\models\Product;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -63,8 +64,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $model = Product::find()
+            ->where(['status'=>1])
+            ->all();
         return $this->render('index',[
-
+            'product'=>$model
         ]);
     }
 

@@ -85,10 +85,8 @@ class TuserController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
         $this->Tuserload($model);
+
         return $this->render('update', [
             'model' => $model,
         ]);

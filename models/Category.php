@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "category".
@@ -72,5 +73,12 @@ class Category extends \yii\db\ActiveRecord
     public function getCreatedBy()
     {
         return $this->hasOne(TeamUser::className(), ['id' => 'created_by']);
+    }
+
+    public static function category_list()
+    {
+        $category =  self::find()->select(['id', 'c_name_en'])->where(['status' => 1])->asArray()->all();
+        $data = ArrayHelper::map($category, 'id', 'c_name_en');
+        return $data;
     }
 }

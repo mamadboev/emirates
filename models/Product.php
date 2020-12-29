@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "product".
@@ -29,19 +31,34 @@ class Product extends \yii\db\ActiveRecord
     {
         return 'product';
     }
-
+    /**
+     * @return array
+     */
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class'      => TimestampBehavior::class,
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                'value'      => date('Y-m-d H:i:s'),
+            ],
+        ];
+    }
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['category_id', 'created_at'], 'required'],
             [['category_id', 'created_by'], 'integer'],
             [['p_describtion'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
-            [['p_name_uz', 'p_name_en', 'p_name_ru', 'p_image'], 'string', 'max' => 255],
+            [['p_name_uz', 'p_name_en', 'p_name_ru' ], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
+            [['p_image'], 'file','skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
 

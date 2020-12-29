@@ -2,12 +2,14 @@
 
 namespace app\controllers;
 
+use app\models\TeamUser;
 use Yii;
 use app\models\Product;
 use app\models\ProductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -66,9 +68,7 @@ class ProductController extends Controller
     {
         $model = new Product();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        $this->Imageloader($model);
 
         return $this->render('create', [
             'model' => $model,
@@ -86,9 +86,7 @@ class ProductController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+      $this->Imageloader($model);
 
         return $this->render('update', [
             'model' => $model,
@@ -124,4 +122,25 @@ class ProductController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+    protected function Imageloader(Product $model)
+    {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->p_image = UploadedFile::getInstance($model, 'p_image');
+
+            if ($model->validate()) {
+                if ($model->p_image) {$filePath = '/var/www/html/shop_test/web/images/' . $model->p_image->baseName . '.' .
+                    $model->p_image->extension;
+                    $fileName=$model->p_image->baseName.'.'.$model->p_image->extension;
+                    if ($model->p_image->saveAs($filePath)) {
+                        $model->p_image = $fileName;
+                        $model->created_by = 1;
+                    }
+                }
+                if ($model->save(false)) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
+        }
+    }
+
 }
