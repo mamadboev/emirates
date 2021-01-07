@@ -111,20 +111,18 @@ $basePath = Yii::$app->getBasePath();
 						      </span>
                             </div>
                         </li>
-                        <li class="shopping-cart"><a href="#" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a></li>
+                        <li class="shopping-cart"><a href="#" class="cart"><span><small><?php echo \app\models\Basket::find()->where(['status'=>1,'user_ip'=>Yii::$app->request->getUserIP()])->count();?></small><i class="icon-shopping-cart"></i></span></a></li>
                     </ul>
                 </div>
             </div>
 
         </div>
     </nav>
-      <!-- <div class="container"> -->
-        <!-- <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
-            <?= Alert::widget() ?> -->
+       <div class="container">
+
+            <?= Alert::widget() ?>
             <?= $content ?>
-        <!-- </div> -->
+
 
 </div>
 <?php echo \app\widgets\newsletter\Newsletters::widget();?>

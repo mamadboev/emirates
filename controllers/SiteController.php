@@ -167,21 +167,41 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionPurchase($id)
+    public function actionPurchase($id,$category)
     {
         $model = new Basket();
-        $model->product_id = $id;
-        $model->user_ip = Yii::$app->request->getUserIP();
-        $model->save();
+        //mahsulot bor yoqligini aniqlash
+        $count = Basket::find()->where(['user_ip'=>Yii::$app->request->getUserIP(),'product_id'=>$id,'status'=>1])->count();
+        //mahsulot topilmasa savatga qoshish sharti
+        if($count == 0)
+        {
+            $model->product_id = $id;
+            $model->user_ip = Yii::$app->request->getUserIP();
+            $model->save();
 
             if ($model->validate() && $model->save()){
-                echo \Yii::$app->session->addFlash("success","Bazaga malumotlar saqlandi");
+                echo \Yii::$app->session->addFlash("success", Yii::t('app',"Product added to baset"));
             }
             else{
-                echo \Yii::$app->session->addFlash("danger","Bazaga malumotlar saqlanmadi");
+                echo \Yii::$app->session->addFlash("danger",Yii::t('app',"Unfortunately product  doesn't add to baset"));
             }
+        }
+        else{
+            echo \Yii::$app->session->addFlash("info",Yii::t('app',"Product exist on baset"));
+        }
 
-        return $this->render('about');
+        //qayta ayni shu oynaga qaytaradi
+        $query= Product::find()->where(['category_id'=>$category]);
+        $dataProvider = new ActiveDataProvider([
+            'query'=> $query,
+            'pagination' => [
+                'pageSize' => 6,
+            ],
+
+        ]);
+        return $this->render('products',[
+            'dataProvider'=>$dataProvider,
+        ]);
 
     }
 
