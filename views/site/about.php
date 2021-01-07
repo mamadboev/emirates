@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <h3><?php echo Yii::t('app','Why this online shopping')?></h3>
                            <p>
                                <?php echo Yii::t('app',
-                                   'Today, online shopping plays an important role in our daily lives. 
+                                   'Today, online shopping plays an important role in our daily lives.
                                   We can buy whatever we want where we stand.
                                   This will help us save our time and spend our time on what we need
                    ')?>
@@ -60,4 +60,3 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
     </div>
-</div>

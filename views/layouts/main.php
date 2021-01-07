@@ -13,8 +13,11 @@ use app\assets\AppAsset;
 use yii\widgets\ActiveForm;
 
 AppAsset::register($this);
+$basePath = Yii::$app->getBasePath();
 ?>
-<?php $this->beginPage() ?>
+<?php $this->beginPage()
+
+?>
 <?php global $site;
     $site="http://shop_test.loc/index.php?r=site%2F";
 ?>

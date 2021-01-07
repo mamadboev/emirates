@@ -2,10 +2,15 @@
 
 namespace app\controllers;
 
+use app\models\Basket;
+use app\models\BasketForm;
 use app\models\Category;
 use app\models\Guest;
 use app\models\Product;
+use app\models\Session;
+use http\Env\Url;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -146,4 +151,39 @@ class SiteController extends Controller
     {
         return $this->render('single');
     }
+
+    public function actionProducts($id)
+    {
+        $query= Product::find()->where(['category_id'=>$id]);
+        $dataProvider = new ActiveDataProvider([
+            'query'=> $query,
+            'pagination' => [
+                'pageSize' => 6,
+            ],
+
+        ]);
+        return $this->render('products',[
+            'dataProvider'=>$dataProvider,
+        ]);
+    }
+
+    public function actionPurchase($id)
+    {
+        $model = new Basket();
+        $model->product_id = $id;
+        $model->user_ip = Yii::$app->request->getUserIP();
+        $model->save();
+
+            if ($model->validate() && $model->save()){
+                echo \Yii::$app->session->addFlash("success","Bazaga malumotlar saqlandi");
+            }
+            else{
+                echo \Yii::$app->session->addFlash("danger","Bazaga malumotlar saqlanmadi");
+            }
+
+        return $this->render('about');
+
+    }
+
+
 }

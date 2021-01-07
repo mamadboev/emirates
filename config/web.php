@@ -19,10 +19,17 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+//        'session' => [
+//            'class' => 'yii\web\DbSession',
+//            // 'db' => 'mydb',  // the application component ID of the DB connection. Defaults to 'db'.
+//            // 'sessionTable' => 'my_session', // session table name. Defaults to 'session'.
+//        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'shop_test',
+            'baseUrl'=>''
         ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -50,14 +57,14 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+
+//        'urlManager' => [
+//            'enablePrettyUrl' => true,
+//            'showScriptName' => false,
+//            'rules' => [
+//            ],
+//        ],
+
     ],
     'params' => $params,
 ];

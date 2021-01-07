@@ -24,6 +24,5 @@ $this->params['breadcrumbs'][] = $this->title;
 
   <?php
   echo \app\widgets\category\Categories::widget(
-
   )
   ?>

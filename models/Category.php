@@ -81,4 +81,10 @@ class Category extends \yii\db\ActiveRecord
         $data = ArrayHelper::map($category, 'id', 'c_name_en');
         return $data;
     }
+    public static function getCategoryname($id)
+    {
+         $name = self::findOne(['id'=>$id]);
+         return $name->c_name_en;
+    }
+
 }

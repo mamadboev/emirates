@@ -17,6 +17,7 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
+    public $sourcePath = __DIR__.'../web';
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
@@ -45,6 +46,10 @@ class AppAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
+    public $publishOptions = [
+        'forceCopy'=>YII_DEBUG
+    ];
 
-   
+
+
 }

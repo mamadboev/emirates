@@ -1,3 +1,8 @@
+<?php
+global $site;
+$site = "http://shop_test.loc/index.php?r=site%2F";
+
+?>
 <div id="fh5co-product">
     <div class="container">
         <div class="row animate-box">
@@ -14,13 +19,13 @@
                         <div class="product-grid" style="background-image:url(images/<?=$item->c_image;?>);">
                             <div class="inner">
                                 <p>
-                                    <a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
-                                    <a href="single.html" class="icon"><i class="icon-eye"></i></a>
+<!--                                    <a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>-->
+                                    <a href="<?=$site.'products&id='.$item->id;?>" class="icon"><i class="icon-eye"></i></a>
                                 </p>
                             </div>
                         </div>
                         <div class="desc">
-                            <h3><a href="single.html"><?=$item->c_name_en;?></a></h3>
+                            <h3><a href="<?=$site.'products&id='.$item->id;?>"><?=$item->c_name_en;?></a></h3>
                             <span class="price">$<?=$item->c_min_price;?></span>
                         </div>
                     </div>
