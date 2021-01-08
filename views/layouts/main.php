@@ -20,6 +20,7 @@ $basePath = Yii::$app->getBasePath();
 ?>
 <?php global $site;
     $site="http://shop_test.loc/index.php?r=site%2F";
+    $basket="http://shop_test.loc/index.php?r=basket%2F";
 ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -104,14 +105,15 @@ $basePath = Yii::$app->getBasePath();
                 <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
                     <ul>
                         <li class="search">
-                            <div class="input-group">
-                                <input type="text" placeholder="Search..">
-                                <span class="input-group-btn">
-						        <button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
-						      </span>
-                            </div>
+                                <div class="input-group">
+                                   <input type="text" name="search" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button" ><i class="icon-search"></i></button>
+                                    </span>
+                                </div>
                         </li>
-                        <li class="shopping-cart"><a href="#" class="cart"><span><small><?php echo \app\models\Basket::find()->where(['status'=>1,'user_ip'=>Yii::$app->request->getUserIP()])->count();?></small><i class="icon-shopping-cart"></i></span></a></li>
+
+                        <li class="shopping-cart"><a href="<?=$basket.'mybasket&user_ip='.Yii::$app->request->getUserIP();?>" class="cart"><span><small><?php echo \app\models\Basket::find()->where(['status'=>1,'user_ip'=>Yii::$app->request->getUserIP()])->count();?></small><i class="icon-shopping-cart"></i></span></a></li>
                     </ul>
                 </div>
             </div>

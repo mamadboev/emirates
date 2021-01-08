@@ -15,6 +15,10 @@ use Yii;
  */
 class Basket extends \yii\db\ActiveRecord
 {
+    public $image;
+    public $name;
+    public $count;
+    public $price;
     /**
      * {@inheritdoc}
      */

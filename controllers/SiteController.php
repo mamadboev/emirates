@@ -205,5 +205,20 @@ class SiteController extends Controller
 
     }
 
+    public function actionSearch($search)
+    {
+        $query= Product::find()->where(['like','p_name_en',$this->$search]);
+        $dataProvider = new ActiveDataProvider([
+            'query'=> $query,
+            'pagination' => [
+                'pageSize' => 6,
+            ],
+
+        ]);
+        return $this->render('products',[
+            'dataProvider'=>$dataProvider,
+        ]);
+    }
+
 
 }
