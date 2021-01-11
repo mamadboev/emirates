@@ -143,4 +143,12 @@ class ProductController extends Controller
         }
     }
 
+    public function actionGuestView($id)
+    {
+        return $this->render('guest-view', [
+            'model' => $this->findModel($id),
+        ]);
+
+    }
+
 }

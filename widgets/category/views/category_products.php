@@ -26,7 +26,7 @@ $site = "http://shop_test.loc/index.php?r=site%2F";
                         </div>
                         <div class="desc">
                             <h3><a href="<?=$site.'products&id='.$item->id;?>"><?=$item->c_name_en;?></a></h3>
-                            <span class="price">$<?=$item->c_min_price;?></span>
+                            <span class="price">$<?=number_format($item->c_min_price,2);?></span>
                         </div>
                     </div>
                 </div>

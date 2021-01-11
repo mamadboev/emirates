@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     Html::a(
                                     Yii::t('app',  \app\models\Product::findOne(['id'=>$model->product_id])->p_name_en),
                                     [
-                                        'product/view',
+                                        'product/guest-view',
                                         'id'=>$model->product_id,
 
                                     ]
@@ -92,7 +92,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
         ],
-    ]); ?>
-
+    ]);
+    ?>
+              <?php echo Html::a(Yii::t('app', 'Ordering'), ['site/about'], ['class' => 'btn btn-danger']);?>
 
 </div>
