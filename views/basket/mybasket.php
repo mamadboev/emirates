@@ -1,5 +1,7 @@
 <?php
 
+
+use app\models\Basket;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -17,6 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'showFooter'=>TRUE,
+        'footerRowOptions'=>['style'=>'font-weight:bold;text-decoration: underline;'],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -48,10 +52,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             'format' => 'raw',
                 ],
                 [
-                    'attribute'=>'count',
+                    'attribute'=>'b_count',
                     'label'  => Yii::t('app', 'Count'),
-                    'value'=> static function($model){
-                        return 1;
+                     'value'=> static function($model){
+                        return $model->b_count;
 
                     },
                     'format'=>'integer',
@@ -61,18 +65,32 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute'=>'price',
                     'label'  => Yii::t('app', 'Price'),
                     'value'=> static function($model){
-                        return \app\models\Product::findOne(['id'=>$model->product_id])->price;
+                        return \app\models\Product::findOne(['id'=>$model->product_id])->price*$model->b_count."$";
 
-                    }
+                    },
+                    'footer'=>'Total: '.Basket::pageTotal($dataProvider->models)."$",
                 ],
-
-
-
 
            // 'product_id',
            // 'status',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+            'class' => 'yii\grid\ActionColumn',
+             'template'=>'{plus}{minus}{delete}',
+             'buttons'=>[
+                 'plus' => function ($url, $model, $key) {
+                     return Html::a(Yii::t('app', '+'), ['/basket/plus/','product_id'=>$model->product_id], ['class' => 'btn btn-info']);
+
+                 },
+                 'minus' => function ($url, $model, $key) {
+                     return Html::a(Yii::t('app', '-'), ['/basket/minus/','product_id'=>$model->product_id], ['class' => 'btn btn-info']);
+
+                 },
+                     ],
+
+
+            ],
+
         ],
     ]); ?>
 

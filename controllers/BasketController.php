@@ -108,7 +108,7 @@ class BasketController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['basket/mybasket/','user_ip'=>Yii::$app->request->getUserIP()]);
     }
 
     /**
@@ -126,8 +126,7 @@ class BasketController extends Controller
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
-
-    public function actionMybasket($user_ip)
+    public function basket($user_ip)
     {
         $model  =  new Product();
         $query= Basket::find()->where(['user_ip'=>$user_ip,'status'=>1]);
@@ -142,6 +141,41 @@ class BasketController extends Controller
             'dataProvider'=>$dataProvider,
             'model'=>$model
         ]);
+
+    }
+    public function actionMybasket($user_ip)
+    {
+      return $this->basket($user_ip);
+    }
+
+
+    public  function  actionPlus($product_id)
+    {
+        $product = Basket::findOne(['user_ip'=>Yii::$app->request->getUserIP(),'status'=>1,'product_id'=>$product_id
+        ]);
+        $product->b_count++;
+        if($product->b_count > Product::findOne(['id'=>$product_id])->p_count)
+        {
+            echo Yii::$app->session->addFlash('info','Product limited');
+            $product->b_count = Product::findOne(['id'=>$product_id])->p_count;
+        }
+        $product->save();
+
+       return $this->basket(Yii::$app->request->getUserIP());
+    }
+    public  function  actionMinus( $product_id)
+    {
+        $product = Basket::findOne(['user_ip'=>Yii::$app->request->getUserIP(),'status'=>1,'product_id'=>$product_id]);
+        $product->b_count--;
+        if($product->b_count<1)
+        {
+            echo Yii::$app->session->addFlash('danger','The number of product can`t be zero');
+            $product->b_count = 1;
+        }
+
+        $product->save();
+
+        return $this->basket(Yii::$app->request->getUserIP());
     }
 
 }

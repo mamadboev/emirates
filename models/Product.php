@@ -19,7 +19,12 @@ use yii\db\ActiveRecord;
  * @property string $created_at
  * @property string|null $updated_at
  * @property int|null $created_by
+ * @property int|null $status
+ * @property float|null $price
+ * @property int|null $count
+ * @property int|null $p_count
  *
+ * @property Basket[] $baskets
  * @property Category $category
  */
 class Product extends \yii\db\ActiveRecord
@@ -31,9 +36,6 @@ class Product extends \yii\db\ActiveRecord
     {
         return 'product';
     }
-    /**
-     * @return array
-     */
     public function behaviors()
     {
         return [
@@ -53,10 +55,12 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'created_by'], 'integer'],
+            [['category_id'], 'required'],
+            [['category_id', 'created_by', 'status', 'count', 'p_count'], 'integer'],
             [['p_describtion'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
-            [['p_name_uz', 'p_name_en', 'p_name_ru' ], 'string', 'max' => 255],
+            [['price'], 'number'],
+            [['p_name_uz', 'p_name_en', 'p_name_ru', 'p_image'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['p_image'], 'file','skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg'],
         ];
@@ -78,7 +82,21 @@ class Product extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'created_by' => 'Created By',
+            'status' => 'Status',
+            'price' => 'Price',
+            'count' => 'Count',
+            'p_count' => 'P Count',
         ];
+    }
+
+    /**
+     * Gets query for [[Baskets]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBaskets()
+    {
+        return $this->hasMany(Basket::className(), ['product_id' => 'id']);
     }
 
     /**

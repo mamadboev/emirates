@@ -10,6 +10,9 @@ use Yii;
  * @property int $id
  * @property string|null $user_ip
  * @property int|null $product_id
+ * @property int|null $status
+ * @property int|null $count
+ * @property int|null $b_count
  *
  * @property Product $product
  */
@@ -17,8 +20,9 @@ class Basket extends \yii\db\ActiveRecord
 {
     public $image;
     public $name;
-    public $count;
     public $price;
+    public $sum;
+
     /**
      * {@inheritdoc}
      */
@@ -33,7 +37,7 @@ class Basket extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id'], 'integer'],
+            [['product_id', 'status', 'count', 'b_count'], 'integer'],
             [['user_ip'], 'string', 'max' => 255],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],
         ];
@@ -48,6 +52,9 @@ class Basket extends \yii\db\ActiveRecord
             'id' => 'ID',
             'user_ip' => 'User Ip',
             'product_id' => 'Product ID',
+            'status' => 'Status',
+            'count' => 'Count',
+            'b_count' => 'B Count',
         ];
     }
 
@@ -60,4 +67,15 @@ class Basket extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Product::className(), ['id' => 'product_id']);
     }
+    public static function pageTotal($provider)
+    {
+        $total=0;
+        foreach($provider as $item){
+            $total+= Product::findOne(['id'=>$item->product_id])->price*$item->b_count;
+        }
+        return $total;
+    }
+
+
+
 }
