@@ -67,12 +67,10 @@ class SubscribersController extends Controller
         $model = new Subscribers();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            echo \Yii::$app->session->addFlash("success", Yii::t('app',"Your letter send"));
             return $this->redirect(['/site/index']);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        return $this->redirect(['/site/index']);
     }
 
     /**

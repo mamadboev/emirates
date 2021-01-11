@@ -54,6 +54,7 @@ class Guest extends \yii\db\ActiveRecord
             [['sentence'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
             [['firstname', 'lastname', 'email', 'subject'], 'string', 'max' => 255],
+            [['firstname', 'lastname', 'email', 'subject'], 'required'],
         ];
     }
 

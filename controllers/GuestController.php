@@ -71,10 +71,7 @@ class GuestController extends Controller
             return $this->redirect(['/site/index']);
         }
 
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        return $this->redirect(['/site/contact']);
     }
 
     /**
