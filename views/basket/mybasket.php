@@ -94,6 +94,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]);
     ?>
-              <?php echo Html::a(Yii::t('app', 'Ordering'), ['site/about'], ['class' => 'btn btn-danger']);?>
+              <?php echo Html::a(Yii::t('app', 'Ordering'), ['order/create'], ['class' => 'btn btn-danger']);?>
 
 </div>
