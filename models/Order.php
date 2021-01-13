@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "order".
@@ -72,6 +73,18 @@ class Order extends \yii\db\ActiveRecord
             [['created_at', 'updated_at'], 'safe'],
             [['phone_number', 'name', 'delivery_type', 'city', 'region', 'street', 'home_number', 'payment_type', 'order_ip'], 'string', 'max' => 255],
             [['delivery_method_id'], 'exist', 'skipOnError' => true, 'targetClass' => DeliveryMethod::className(), 'targetAttribute' => ['delivery_method_id' => 'id']],
+            [
+                ['phone_number'],
+                'match',
+                'pattern' => '/^\((9[1|3|4|5|7|8|9|0])|(33)|(88)\)\-\d{3}\-\d{2}\-\d{2}$/',
+            ],
+            [
+                ['phone_number'],
+                function ($attribute, $params) {
+                    preg_match_all('/\d/', $this->phone_number, $matches);
+                    $this->phone = implode('', ArrayHelper::getValue($matches, 0, []));
+                },
+            ],
         ];
     }
 

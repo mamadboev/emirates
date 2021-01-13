@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "tuman".
@@ -69,4 +70,11 @@ class Tuman extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+    public static function region_list()
+    {
+        $regions =  self::find()->select(['id','name_lotin'])->asArray()->all();
+        $data = ArrayHelper::map($regions, 'id', 'name_lotin');
+        return $data;
+    }
 }
+

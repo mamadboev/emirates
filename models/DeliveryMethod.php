@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "delivery_method".
@@ -77,5 +78,11 @@ class DeliveryMethod extends \yii\db\ActiveRecord
     public function getOrders()
     {
         return $this->hasMany(Order::className(), ['delivery_method_id' => 'id']);
+    }
+    public static function delivery_list()
+    {
+        $methods =  self::find()->select(['id','d_method_name','d_method_day','d_method_price'])->asArray()->all();
+        $data = ArrayHelper::map($methods, 'id', 'd_method_name');
+        return $data;
     }
 }

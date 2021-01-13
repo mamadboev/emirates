@@ -2,9 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\Basket;
+use app\models\Product;
 use Yii;
 use app\models\Order;
 use app\models\OrderSearch;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -64,6 +67,15 @@ class OrderController extends Controller
      */
     public function actionCreate()
     {
+      //  $model  =  new Product();
+        $query= Basket::find()->where(['user_ip'=>Yii::$app->request->getUserIP(),'status'=>1]);
+        $dataProvider = new ActiveDataProvider([
+            'query'=> $query,
+            'pagination' => [
+                'pageSize' => 6,
+            ],
+
+        ]);
         $model = new Order();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -72,6 +84,7 @@ class OrderController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'dataProvider'=>$dataProvider
         ]);
     }
 

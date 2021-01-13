@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "test_sys_region".
@@ -65,5 +66,11 @@ class TestSysRegion extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+    public static function city_list()
+    {
+        $cities =  self::find()->select(['id','name_uz','name_ru'])->asArray()->all();
+        $data = ArrayHelper::map($cities, 'id', 'name_uz');
+        return $data;
     }
 }
