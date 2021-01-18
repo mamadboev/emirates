@@ -48,24 +48,24 @@ $basePath = Yii::$app->getBasePath();
     <meta name="twitter:url" content="" />
     <meta name="twitter:card" content="" />
     <!-- Animate.css -->
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="../../web/css/animate.css">
     <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="../../web/css/icomoon.css">
     <!-- Bootstrap  -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="../../web/css/bootstrap.css">
 
     <!-- Flexslider  -->
-    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="../../web/css/flexslider.css">
 
     <!-- Owl Carousel  -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../web/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../web/css/owl.theme.default.min.css">
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../web/css/style.css">
 
     <!-- Modernizr JS -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="../../web/js/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
 
     <?php $this->head() ?>
@@ -79,19 +79,19 @@ $basePath = Yii::$app->getBasePath();
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-xs-2">
-                    <div id="fh5co-logo"><a href="<?=$site.'index';?>"><?php echo  Yii::t('app','Shop.');?></a></div>
+                    <div id="fh5co-logo"><a href="index"><?php echo  Yii::t('app','Shop.');?></a></div>
                 </div>
                 <div class="col-md-6 col-xs-6 text-center menu-1">
                     <ul>
                         <li class="has-dropdown">
-                            <a href="<?=$site.'category';?>"><?php echo  Yii::t('app','Category');?></a>
+                            <a href="category"><?php echo  Yii::t('app','Category');?></a>
                             <ul class="dropdown">
-                                <li><a href="<?=$site.'single'?>"><?php echo  Yii::t('app','Single Shop');?></a></li>
+                                <li><a href="single"><?php echo  Yii::t('app','Single Shop');?></a></li>
                             </ul>
                         </li>
-                        <li><a href="<?=$site.'about';?>"><?php echo  Yii::t('app','About');?></a></li>
+                        <li><a href="about"><?php echo  Yii::t('app','About');?></a></li>
                         <li class="has-dropdown">
-                            <a href="<?=$site.'services';?>"><?php echo  Yii::t('app','Services');?></a>
+                            <a href="services"><?php echo  Yii::t('app','Services');?></a>
                             <ul class="dropdown">
                                 <li><a href="#"><?php echo  Yii::t('app','Web Design');?></a></li>
                                 <li><a href="#"><?php echo  Yii::t('app','eCommerce.');?></a></li>
@@ -99,34 +99,39 @@ $basePath = Yii::$app->getBasePath();
                                 <li><a href="#"><?php echo  Yii::t('app','API.');?></a></li>
                             </ul>
                         </li>
-                        <li><a href="<?=$site.'contact';?>"><?php echo  Yii::t('app','Contact');?></a></li>
+                        <li><a href="contact"><?php echo  Yii::t('app','Contact');?></a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
                     <ul>
-                        <li class="search">
+                        <form method="get" action="search">
+                            <li class="search">
                                 <div class="input-group">
-                                   <input type="text" name="search" placeholder="Search...">
+                                    <input type="text" name="search" placeholder="Search...">
                                     <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button" ><i class="icon-search"></i></button>
-                                    </span>
+						             <input type="submit" value="OK">
+						            </span>
                                 </div>
-                        </li>
+                            </li>
 
-                        <li class="shopping-cart"><a href="<?=$basket.'mybasket&user_ip='.Yii::$app->request->getUserIP();?>" class="cart"><span><small><?php echo \app\models\Basket::find()->where(['status'=>1,'user_ip'=>Yii::$app->request->getUserIP()])->count();?></small><i class="icon-shopping-cart"></i></span></a></li>
+                        </form>
+
+                        <li class="shopping-cart"><a href="mybasket&user_ip='.Yii::$app->request->getUserIP();?>" class="cart"><span><small><?php echo \app\models\Basket::find()->where(['status'=>1,'user_ip'=>Yii::$app->request->getUserIP()])->count();?></small><i class="icon-shopping-cart"></i></span></a></li>
                     </ul>
                 </div>
             </div>
 
         </div>
     </nav>
-       <div class="container">
+    <!--Dollar Rubl Evro kurslari-->
+        <div class="container">
 
+            </div>
+    <!--Kurs ko'rinishoi yakuni-->
+        <div class="container">
             <?= Alert::widget() ?>
             <?= $content ?>
-
-
-</div>
+        </div>
 <?php echo \app\widgets\newsletter\Newsletters::widget();?>
 
     <footer id="fh5co-footer" role="contentinfo">
@@ -138,9 +143,9 @@ $basePath = Yii::$app->getBasePath();
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
                     <ul class="fh5co-footer-links">
-                        <li><a href="<?=$site.'about'?>"><?php echo  Yii::t('app','About');?></a></li>
+                        <li><a href="about"><?php echo  Yii::t('app','About');?></a></li>
                         <li><a href="#"><?php echo  Yii::t('app','Help');?></a></li>
-                        <li><a href="<?=$site.'contact'?>"><?php echo  Yii::t('app','Contact');?></a></li>
+                        <li><a href="'contact'?>"><?php echo  Yii::t('app','Contact');?></a></li>
                         <li><a href="#"><?php echo  Yii::t('app','Terms');?></a></li>
                         <li><a href="#"><?php echo  Yii::t('app','Meetups');?></a></li>
                     </ul>
@@ -196,21 +201,21 @@ $basePath = Yii::$app->getBasePath();
 <?php $this->endBody() ?>
 
 <!-- jQuery -->
-<script src="js/jquery.min.js"></script>
+<script src="../../web/js/jquery.min.js"></script>
 <!-- jQuery Easing -->
-<script src="js/jquery.easing.1.3.js"></script>
+<script src="../../web/js/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="js/bootstrap.min.js"></script>
+<script src="../../web/js/bootstrap.min.js"></script>
 <!-- Waypoints -->
-<script src="js/jquery.waypoints.min.js"></script>
+<script src="../../web/js/jquery.waypoints.min.js"></script>
 <!-- Carousel -->
-<script src="js/owl.carousel.min.js"></script>
+<script src="../../web/js/owl.carousel.min.js"></script>
 <!-- countTo -->
-<script src="js/jquery.countTo.js"></script>
+<script src="../../web/js/jquery.countTo.js"></script>
 <!-- Flexslider -->
-<script src="js/jquery.flexslider-min.js"></script>
+<script src="../../web/js/jquery.flexslider-min.js"></script>
 <!-- Main -->
-<script src="js/main.js"></script>
+<script src="../../web/js/main.js"></script>
         
 </body>
 </html>

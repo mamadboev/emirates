@@ -8,7 +8,7 @@ $this->title = 'About';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-index">
-    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/shopping.jpg);">
+    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../../web/images/shopping.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img class="img-responsive" src="images/shopping_about1.jpg" alt="about">
+                        <img class="img-responsive" src="../../web/images/shopping_about1.jpg" alt="about">
                     </div>
                 </div>
             </div>

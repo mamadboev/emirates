@@ -21,9 +21,9 @@ use app\models\Basket;
 
    <div class="col-md-12">
        <div class="col-md-4">
-           <?= $form->field($model, 'phone_number')->widget(MaskedInput::class, [
+           <?php echo $form->field($model, 'phone_number')->widget(MaskedInput::class, [
                'mask' => '(99)-999-99-99',
-           ]) ?>
+           ]) ;?>
            <?= Html::submitButton(Yii::t('app', 'Activation code'), ['class' => 'btn btn-info']) ?>
        </div>
        <div class="col-md-4">

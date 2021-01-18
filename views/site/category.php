@@ -1,12 +1,10 @@
 <?php
-use Yii;
-
 $this->title = 'Category';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site-product">
-    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/shop.jpg);">
+    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../../web/images/shop.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">

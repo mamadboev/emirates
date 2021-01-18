@@ -13,7 +13,7 @@ $this->title = 'My Yii Application';
     <div class="flexslider js-fullheight">
         <ul class="slides">
             <?php foreach ($product as $item):?>
-            <li style="background-image: url(images/<?=$item->p_image;?>);">
+            <li style="background-image: url(../../web/images/<?=$item->p_image;?>);">
                 <div class="overlay-gradient"></div>
                 <div class="container">
                     <div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">

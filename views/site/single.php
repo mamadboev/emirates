@@ -3,7 +3,7 @@ $this->title = 'Single';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-single">
-    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/img_bg_2.jpg);">
+    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../../web/images/img_bg_2.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -27,35 +27,35 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="item">
                             <div class="active text-center">
                                 <figure>
-                                    <img src="images/product-single-1.jpg" alt="user">
+                                    <img src="../../web/images/product-single-1.jpg" alt="user">
                                 </figure>
                             </div>
                         </div>
                         <div class="item">
                             <div class="active text-center">
                                 <figure>
-                                    <img src="images/product-single-2.jpg" alt="user">
+                                    <img src="../../web/images/product-single-2.jpg" alt="user">
                                 </figure>
                             </div>
                         </div>
                         <div class="item">
                             <div class="active text-center">
                                 <figure>
-                                    <img src="images/product-single-3.jpg" alt="user">
+                                    <img src="../../web/images/product-single-3.jpg" alt="user">
                                 </figure>
                             </div>
                         </div>
                         <div class="item">
                             <div class="active text-center">
                                 <figure>
-                                    <img src="images/product-single-4.jpg" alt="user">
+                                    <img src="../../web/images/product-single-4.jpg" alt="user">
                                 </figure>
                             </div>
                         </div>
                         <div class="item">
                             <div class="active text-center">
                                 <figure>
-                                    <img src="images/product-single-5.jpg" alt="user">
+                                    <img src="../../web/images/product-single-5.jpg" alt="user">
                                 </figure>
                             </div>
                         </div>

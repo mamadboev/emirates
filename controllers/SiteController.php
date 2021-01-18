@@ -166,6 +166,21 @@ class SiteController extends Controller
             'dataProvider'=>$dataProvider,
         ]);
     }
+    public function actionLike($search)
+    {
+        $query= Product::find()->where(['p_name_en'=>$search]);
+        $dataProvider = new ActiveDataProvider([
+            'query'=> $query,
+            'pagination' => [
+                'pageSize' => 6,
+            ],
+
+        ]);
+        return $this->render('products',[
+            'dataProvider'=>$dataProvider,
+        ]);
+
+    }
 
     public function actionPurchase($id,$category)
     {
@@ -207,16 +222,31 @@ class SiteController extends Controller
 
     public function actionSearch($search)
     {
-        $query= Product::find()->where(['like','p_name_en',$this->$search]);
-        $dataProvider = new ActiveDataProvider([
+        $query= Product::find()->where(['like','p_name_en',$search]);
+        $query2= Product::find()->where(['status'=>1]);
+        $count= $query->count();
+       // $products= Product::find()->where(['status'=>1]);
+        $dataProvider1 = new ActiveDataProvider([
             'query'=> $query,
             'pagination' => [
                 'pageSize' => 6,
             ],
 
         ]);
+        $dataProvider2 = new ActiveDataProvider([
+            'query'=> $query2,
+            'pagination' => [
+                'pageSize' => 6,
+            ],
+
+        ]);
+
         return $this->render('products',[
-            'dataProvider'=>$dataProvider,
+            'dataProvider1'=>$dataProvider1,
+            'dataProvider2'=>$dataProvider2,
+            'word'=>$search,
+            'count'=>$count,
+
         ]);
     }
 

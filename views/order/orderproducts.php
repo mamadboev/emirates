@@ -1,6 +1,5 @@
 <!--malumotla toliq qatorda yakka bolmasligi uchun ularni tartibga solamiz col bilan-->
 
-<?php $site = "http://shop_test.loc/index.php?r=site%2F";?>
 <div class="col-md-4">
     <div class="card" style="width: 250px;">
         <div class="col-md-6">
