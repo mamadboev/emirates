@@ -241,7 +241,7 @@ class SiteController extends Controller
 
         ]);
 
-        return $this->render('products',[
+        return $this->render('search',[
             'dataProvider1'=>$dataProvider1,
             'dataProvider2'=>$dataProvider2,
             'word'=>$search,

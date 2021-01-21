@@ -79,19 +79,19 @@ $basePath = Yii::$app->getBasePath();
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-xs-2">
-                    <div id="fh5co-logo"><a href="index"><?php echo  Yii::t('app','Shop.');?></a></div>
+                    <div id="fh5co-logo"><a href="/site/index"><?php echo  Yii::t('app','Shop.');?></a></div>
                 </div>
                 <div class="col-md-6 col-xs-6 text-center menu-1">
                     <ul>
                         <li class="has-dropdown">
-                            <a href="category"><?php echo  Yii::t('app','Category');?></a>
+                            <a href="/site/category"><?php echo  Yii::t('app','Category');?></a>
                             <ul class="dropdown">
-                                <li><a href="single"><?php echo  Yii::t('app','Single Shop');?></a></li>
+                                <li><a href="site/single"><?php echo  Yii::t('app','Single Shop');?></a></li>
                             </ul>
                         </li>
-                        <li><a href="about"><?php echo  Yii::t('app','About');?></a></li>
+                        <li><a href="/site/about"><?php echo  Yii::t('app','About');?></a></li>
                         <li class="has-dropdown">
-                            <a href="services"><?php echo  Yii::t('app','Services');?></a>
+                            <a href="/site/services"><?php echo  Yii::t('app','Services');?></a>
                             <ul class="dropdown">
                                 <li><a href="#"><?php echo  Yii::t('app','Web Design');?></a></li>
                                 <li><a href="#"><?php echo  Yii::t('app','eCommerce.');?></a></li>
@@ -99,7 +99,7 @@ $basePath = Yii::$app->getBasePath();
                                 <li><a href="#"><?php echo  Yii::t('app','API.');?></a></li>
                             </ul>
                         </li>
-                        <li><a href="contact"><?php echo  Yii::t('app','Contact');?></a></li>
+                        <li><a href="/site/contact"><?php echo  Yii::t('app','Contact');?></a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
@@ -116,7 +116,7 @@ $basePath = Yii::$app->getBasePath();
 
                         </form>
 
-                        <li class="shopping-cart"><a href="mybasket&user_ip='.Yii::$app->request->getUserIP();?>" class="cart"><span><small><?php echo \app\models\Basket::find()->where(['status'=>1,'user_ip'=>Yii::$app->request->getUserIP()])->count();?></small><i class="icon-shopping-cart"></i></span></a></li>
+                        <li class="shopping-cart"><a href="/basket/mybasket?user_ip=<?=Yii::$app->request->getUserIP();?>" class="cart"><span><small><?php echo \app\models\Basket::find()->where(['status'=>1,'user_ip'=>Yii::$app->request->getUserIP()])->count();?></small><i class="icon-shopping-cart"></i></span></a></li>
                     </ul>
                 </div>
             </div>
@@ -143,9 +143,9 @@ $basePath = Yii::$app->getBasePath();
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
                     <ul class="fh5co-footer-links">
-                        <li><a href="about"><?php echo  Yii::t('app','About');?></a></li>
+                        <li><a href="/site/about"><?php echo  Yii::t('app','About');?></a></li>
                         <li><a href="#"><?php echo  Yii::t('app','Help');?></a></li>
-                        <li><a href="'contact'?>"><?php echo  Yii::t('app','Contact');?></a></li>
+                        <li><a href="/site/contact"><?php echo  Yii::t('app','Contact');?></a></li>
                         <li><a href="#"><?php echo  Yii::t('app','Terms');?></a></li>
                         <li><a href="#"><?php echo  Yii::t('app','Meetups');?></a></li>
                     </ul>

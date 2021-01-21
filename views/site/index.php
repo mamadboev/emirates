@@ -22,7 +22,7 @@ $this->title = 'My Yii Application';
                                 <span class="price">$<?=$item->price;?></span>
                                 <h2><?=$item->p_name_en;?></h2>
                                 <p><?=$item->p_describtion;?></p>
-                                <p><a href="single.html" class="btn btn-primary btn-outline btn-lg">Purchase Now</a></p>
+                                <p><a href="/site/purchase?id=<?=$item->id.'&category='.$item->category_id;?>" class="btn btn-primary btn-outline btn-lg">Purchase Now</a></p>
                             </div>
                         </div>
                     </div>

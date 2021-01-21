@@ -2,7 +2,7 @@
 <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
                         <div class="fh5co-staff">
                             <?php foreach ($model as $item):?>
-                            <img src="images/<?=$item->image;?>" alt="Free HTML5 Templates by gettemplates.co">
+                            <img src="../../web/images/<?=$item->image;?>" alt="Free HTML5 Templates by gettemplates.co">
                             <h3><?=$item->name." ".$item->surname;?></h3>
                             <strong class="role"><?=$item->position;?></strong>
                             <p><?=$item->about_user;?></p>

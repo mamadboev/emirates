@@ -9,7 +9,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\BasketSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$url= 'http://shop_test.loc/index.php?r=product%2Fview';
+
 $this->title = Yii::t('app', 'My products');
 $this->params['breadcrumbs'][] = $this->title;
 ?>

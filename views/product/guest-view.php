@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="about-content">
                 <div class="row animate-box">
                     <div class="col-md-6">
-                        <img class="img-responsive" src="images/<?=$model->p_image;?>" alt="about">
+                        <img class="img-responsive" src="../web/images/<?=$model->p_image;?>" alt="about">
                     </div>
                     <div class="col-md-6" >
                         <h4>

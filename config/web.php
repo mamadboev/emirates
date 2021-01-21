@@ -19,7 +19,13 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+        ],
+    ],
     'components' => [
+
 //        'session' => [
 //            'class' => 'yii\web\DbSession',
 //            // 'db' => 'mydb',  // the application component ID of the DB connection. Defaults to 'db'.
@@ -62,6 +68,7 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
             ],
         ],
